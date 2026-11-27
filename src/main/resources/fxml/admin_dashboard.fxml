@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.campus.placement.controller.AdminDashboardController">
+    <left>
+        <VBox styleClass="sidebar" spacing="6">
+            <Label text="TPO / Admin Portal" styleClass="sidebar-brand"/>
+            <Button text="Dashboard" onAction="#navDashboard" styleClass="sidebar-btn-active"/>
+            <Button text="Companies" onAction="#navCompanies" styleClass="sidebar-btn"/>
+            <Button text="Placement Drives" onAction="#navDrives" styleClass="sidebar-btn"/>
+            <Button text="Applicant Pipeline" onAction="#navApplicants" styleClass="sidebar-btn"/>
+            <Button text="Manage Students" onAction="#navStudents" styleClass="sidebar-btn"/>
+            <Button text="Reports &amp; Audit" onAction="#navReports" styleClass="sidebar-btn"/>
+            <Button text="Placement Policy" onAction="#navPolicy" styleClass="sidebar-btn"/>
+            <Region VBox.vgrow="ALWAYS"/>
+            <Button text="Logout" onAction="#handleLogout" styleClass="btn-danger" maxWidth="Infinity"/>
+        </VBox>
+    </left>
+
+    <center>
+        <VBox spacing="18">
+            <padding>
+                <Insets top="24" right="24" bottom="24" left="24"/>
+            </padding>
+
+            <Label text="Placement Cell Dashboard" styleClass="page-title"/>
+
+            <HBox spacing="12">
+                <VBox styleClass="kpi-card" HBox.hgrow="ALWAYS" spacing="4">
+                    <Label text="Total Students" styleClass="kpi-label"/>
+                    <Label fx:id="totalStudentsLabel" text="0" styleClass="kpi-value"/>
+                </VBox>
+                <VBox styleClass="kpi-card" HBox.hgrow="ALWAYS" spacing="4">
+                    <Label text="Placed %" styleClass="kpi-label"/>
+                    <Label fx:id="placedPctLabel" text="0%" styleClass="kpi-value"/>
+                </VBox>
+                <VBox styleClass="kpi-card" HBox.hgrow="ALWAYS" spacing="4">
+                    <Label text="Active Drives" styleClass="kpi-label"/>
+                    <Label fx:id="activeDrivesLabel" text="0" styleClass="kpi-value"/>
+                </VBox>
+                <VBox styleClass="kpi-card" HBox.hgrow="ALWAYS" spacing="4">
+                    <Label text="Total Offers" styleClass="kpi-label"/>
+                    <Label fx:id="totalOffersLabel" text="0" styleClass="kpi-value"/>
+                </VBox>
+                <VBox styleClass="kpi-card" HBox.hgrow="ALWAYS" spacing="4">
+                    <Label text="Avg / Max LPA" styleClass="kpi-label"/>
+                    <Label fx:id="avgMaxLabel" text="0 / 0" styleClass="kpi-value"/>
+                </VBox>
+            </HBox>
+
+            <HBox spacing="16" VBox.vgrow="ALWAYS">
+                <VBox styleClass="card" HBox.hgrow="ALWAYS" spacing="8">
+                    <Label text="Placed Students by Branch" styleClass="section-title"/>
+                    <PieChart fx:id="branchPieChart" VBox.vgrow="ALWAYS"/>
+                </VBox>
+                <VBox styleClass="card" HBox.hgrow="ALWAYS" spacing="8">
+                    <Label text="Package Distribution (LPA)" styleClass="section-title"/>
+                    <BarChart fx:id="packageBarChart" VBox.vgrow="ALWAYS">
+                        <xAxis><CategoryAxis label="Package Band"/></xAxis>
+                        <yAxis><NumberAxis label="Offers"/></yAxis>
+                    </BarChart>
+                </VBox>
+            </HBox>
+        </VBox>
+    </center>
+</BorderPane>

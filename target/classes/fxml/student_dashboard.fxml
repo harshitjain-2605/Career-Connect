@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.campus.placement.controller.StudentDashboardController">
+    <left>
+        <VBox styleClass="sidebar" spacing="6">
+            <Label text="Student Portal" styleClass="sidebar-brand"/>
+            <Button text="Dashboard" onAction="#navDashboard" styleClass="sidebar-btn-active"/>
+            <Button text="Browse Drives" onAction="#navDrives" styleClass="sidebar-btn"/>
+            <Button text="Applications &amp; Offers" onAction="#navApplications" styleClass="sidebar-btn"/>
+            <Button text="Profile &amp; Resume" onAction="#navProfile" styleClass="sidebar-btn"/>
+            <Button text="Placement Policy" onAction="#navPolicy" styleClass="sidebar-btn"/>
+            <Region VBox.vgrow="ALWAYS"/>
+            <Button text="Logout" onAction="#handleLogout" styleClass="btn-danger" maxWidth="Infinity"/>
+        </VBox>
+    </left>
+
+    <center>
+        <VBox spacing="18">
+            <padding>
+                <Insets top="24" right="24" bottom="24" left="24"/>
+            </padding>
+
+            <Label fx:id="welcomeLabel" text="Welcome" styleClass="page-title"/>
+
+            <HBox spacing="14">
+                <VBox styleClass="kpi-card" HBox.hgrow="ALWAYS" spacing="4">
+                    <Label text="Branch &amp; Batch" styleClass="kpi-label"/>
+                    <Label fx:id="branchBatchLabel" text="-" styleClass="kpi-value"/>
+                </VBox>
+                <VBox styleClass="kpi-card" HBox.hgrow="ALWAYS" spacing="4">
+                    <Label text="CGPA / Backlogs" styleClass="kpi-label"/>
+                    <Label fx:id="cgpaLabel" text="-" styleClass="kpi-value"/>
+                </VBox>
+                <VBox styleClass="kpi-card" HBox.hgrow="ALWAYS" spacing="4">
+                    <Label text="Applications" styleClass="kpi-label"/>
+                    <Label fx:id="appCountLabel" text="0" styleClass="kpi-value"/>
+                </VBox>
+                <VBox styleClass="kpi-card" HBox.hgrow="ALWAYS" spacing="4">
+                    <Label text="Offers" styleClass="kpi-label"/>
+                    <Label fx:id="offerCountLabel" text="0" styleClass="kpi-value"/>
+                </VBox>
+            </HBox>
+
+            <VBox styleClass="card" spacing="10" VBox.vgrow="ALWAYS">
+                <HBox alignment="CENTER_LEFT" spacing="12">
+                    <Label text="Notifications" styleClass="section-title"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <Button text="Mark Selected as Read" onAction="#handleMarkRead" styleClass="btn-secondary"/>
+                </HBox>
+                <ListView fx:id="notificationsListView" VBox.vgrow="ALWAYS"/>
+            </VBox>
+        </VBox>
+    </center>
+</BorderPane>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.campus.placement.controller.StudentDrivesController">
+    <left>
+        <VBox styleClass="sidebar" spacing="6">
+            <Label text="Student Portal" styleClass="sidebar-brand"/>
+            <Button text="Dashboard" onAction="#navDashboard" styleClass="sidebar-btn"/>
+            <Button text="Browse Drives" onAction="#navDrives" styleClass="sidebar-btn-active"/>
+            <Button text="Applications &amp; Offers" onAction="#navApplications" styleClass="sidebar-btn"/>
+            <Button text="Profile &amp; Resume" onAction="#navProfile" styleClass="sidebar-btn"/>
+            <Button text="Placement Policy" onAction="#navPolicy" styleClass="sidebar-btn"/>
+            <Region VBox.vgrow="ALWAYS"/>
+            <Button text="Logout" onAction="#handleLogout" styleClass="btn-danger" maxWidth="Infinity"/>
+        </VBox>
+    </left>
+
+    <center>
+        <VBox spacing="14">
+            <padding>
+                <Insets top="24" right="24" bottom="24" left="24"/>
+            </padding>
+
+            <Label text="Placement Drives" styleClass="page-title"/>
+
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <TextField fx:id="searchField" promptText="Search company, role, location..." HBox.hgrow="ALWAYS"/>
+                <ComboBox fx:id="statusFilterCombo" prefWidth="140"/>
+                <ComboBox fx:id="sortCombo" prefWidth="170"/>
+                <Button text="Search" onAction="#handleSearch" styleClass="btn-primary"/>
+            </HBox>
+
+            <TableView fx:id="drivesTable" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="colCompany" text="Company" prefWidth="170"/>
+                    <TableColumn fx:id="colRole" text="Job Role" prefWidth="180"/>
+                    <TableColumn fx:id="colPackage" text="Package (LPA)" prefWidth="105"/>
+                    <TableColumn fx:id="colType" text="Type" prefWidth="95"/>
+                    <TableColumn fx:id="colLastDate" text="Last Date" prefWidth="100"/>
+                    <TableColumn fx:id="colStatus" text="Status" prefWidth="95"/>
+                    <TableColumn fx:id="colEligibility" text="Eligibility" prefWidth="250"/>
+                </columns>
+            </TableView>
+
+            <HBox spacing="12" alignment="CENTER_RIGHT">
+                <Label fx:id="selectedInfoLabel" text="Select a drive to apply" style="-fx-text-fill: #64748b;"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Button fx:id="applyButton" text="Apply to Selected Drive" onAction="#handleApply" styleClass="btn-success"/>
+            </HBox>
+        </VBox>
+    </center>
+</BorderPane>

@@ -1,0 +1,86 @@
+Nov 27, 2026 12:11:16 PM com.campus.placement.util.LoggerUtil init
+INFO: Logging initialized (console + rotating logs/app.log)
+Nov 27, 2026 12:11:17 PM com.campus.placement.app.MainApp init
+INFO: Application init() started.
+Nov 27, 2026 12:11:17 PM com.campus.placement.db.DatabaseInitializer initialize
+INFO: Empty database detected. Running seed script: /seed.sql
+Nov 27, 2026 12:11:17 PM com.campus.placement.db.DatabaseInitializer initialize
+INFO: Seed data loaded successfully.
+Nov 27, 2026 12:11:18 PM com.campus.placement.app.MainApp start
+INFO: Primary Stage displayed successfully.
+Nov 27, 2026 12:15:32 PM com.campus.placement.util.LoggerUtil init
+INFO: Logging initialized (console + rotating logs/app.log)
+Nov 27, 2026 12:17:52 PM com.campus.placement.util.LoggerUtil init
+INFO: Logging initialized (console + rotating logs/app.log)
+Nov 27, 2026 12:20:29 PM com.campus.placement.util.LoggerUtil init
+INFO: Logging initialized (console + rotating logs/app.log)
+Nov 27, 2026 12:20:39 PM com.campus.placement.util.LoggerUtil init
+INFO: Logging initialized (console + rotating logs/app.log)
+Nov 27, 2026 12:20:39 PM com.campus.placement.app.MainApp init
+INFO: Application init() started.
+Nov 27, 2026 12:20:39 PM com.campus.placement.db.DatabaseInitializer initialize
+INFO: Database already initialized with existing data.
+Nov 27, 2026 12:20:40 PM com.campus.placement.app.MainApp start
+INFO: Primary Stage displayed with Login screen.
+Nov 27, 2026 12:23:23 PM com.campus.placement.util.LoggerUtil init
+INFO: Logging initialized (console + rotating logs/app.log)
+Nov 27, 2026 12:23:32 PM com.campus.placement.util.LoggerUtil init
+INFO: Logging initialized (console + rotating logs/app.log)
+Nov 27, 2026 12:23:32 PM com.campus.placement.app.MainApp init
+INFO: Application init() started.
+Nov 27, 2026 12:23:32 PM com.campus.placement.db.DatabaseInitializer initialize
+INFO: Database already initialized with existing data.
+Nov 27, 2026 12:23:32 PM com.campus.placement.app.MainApp start
+INFO: Primary Stage displayed with Login screen.
+Nov 27, 2026 12:24:41 PM com.campus.placement.util.LoggerUtil init
+INFO: Logging initialized (console + rotating logs/app.log)
+Nov 27, 2026 12:24:50 PM com.campus.placement.util.LoggerUtil init
+INFO: Logging initialized (console + rotating logs/app.log)
+Nov 27, 2026 12:24:50 PM com.campus.placement.app.MainApp init
+INFO: Application init() started.
+Nov 27, 2026 12:24:50 PM com.campus.placement.db.DatabaseInitializer initialize
+INFO: Database already initialized with existing data.
+Nov 27, 2026 12:24:51 PM com.campus.placement.app.MainApp start
+INFO: Primary Stage displayed with Login screen.
+Nov 27, 2026 12:26:38 PM com.campus.placement.util.LoggerUtil init
+INFO: Logging initialized (console + rotating logs/app.log)
+Nov 27, 2026 12:26:47 PM com.campus.placement.util.LoggerUtil init
+INFO: Logging initialized (console + rotating logs/app.log)
+Nov 27, 2026 12:26:47 PM com.campus.placement.app.MainApp init
+INFO: Application init() started.
+Nov 27, 2026 12:26:47 PM com.campus.placement.db.DatabaseInitializer initialize
+INFO: Database already initialized with existing data.
+Nov 27, 2026 12:26:48 PM com.campus.placement.app.MainApp start
+INFO: Primary Stage displayed with Login screen.
+Nov 27, 2026 12:27:46 PM com.campus.placement.util.LoggerUtil init
+INFO: Logging initialized (console + rotating logs/app.log)
+Nov 27, 2026 12:28:04 PM com.campus.placement.util.LoggerUtil init
+INFO: Logging initialized (console + rotating logs/app.log)
+Nov 27, 2026 12:28:05 PM com.campus.placement.app.MainApp init
+INFO: Application init() started.
+Nov 27, 2026 12:28:05 PM com.campus.placement.db.DatabaseInitializer initialize
+INFO: Database already initialized with existing data.
+Nov 27, 2026 12:28:05 PM com.campus.placement.app.MainApp start
+INFO: Primary Stage displayed with Login screen.
+Nov 27, 2026 12:29:07 PM com.campus.placement.util.LoggerUtil init
+INFO: Logging initialized (console + rotating logs/app.log)
+Nov 27, 2026 12:29:07 PM com.campus.placement.db.DatabaseInitializer initialize
+INFO: Database already initialized with existing data.
+Nov 27, 2026 12:29:07 PM com.campus.placement.rest.PlacementRestServer start
+INFO: PlacementRestServer listening on http://localhost:18080
+Nov 27, 2026 12:31:09 PM com.campus.placement.util.LoggerUtil init
+INFO: Logging initialized (console + rotating logs/app.log)
+Nov 27, 2026 12:31:09 PM com.campus.placement.db.DatabaseInitializer initialize
+INFO: Database already initialized with existing data.
+Nov 27, 2026 12:31:09 PM com.campus.placement.rest.PlacementRestServer start
+INFO: PlacementRestServer listening on http://localhost:8080
+Nov 27, 2026 12:41:36 PM com.campus.placement.util.LoggerUtil init
+INFO: Logging initialized (console + rotating logs/app.log)
+Nov 27, 2026 12:41:36 PM com.campus.placement.db.DatabaseInitializer initialize
+INFO: Database already initialized with existing data.
+Nov 27, 2026 12:41:36 PM com.campus.placement.rest.PlacementRestServer start
+INFO: PlacementRestServer listening on http://localhost:8080
+Nov 27, 2026 12:42:32 PM com.campus.placement.rest.PlacementRestServer sendError
+WARNING: REST error: You have already applied to this drive.
+Nov 27, 2026 12:43:51 PM com.campus.placement.rest.PlacementRestServer sendError
+WARNING: REST error: stream closed

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.campus.placement.controller.RecruiterDashboardController">
+    <top>
+        <HBox styleClass="app-header" alignment="CENTER_LEFT" spacing="12">
+            <VBox spacing="2">
+                <Label fx:id="headerTitle" text="Company Recruiter Portal" styleClass="app-title"/>
+                <Label text="View your company's placement drives and shortlist applicants" styleClass="app-subtitle"/>
+            </VBox>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button text="Logout" onAction="#handleLogout" styleClass="btn-danger"/>
+        </HBox>
+    </top>
+
+    <center>
+        <VBox spacing="14">
+            <padding>
+                <Insets top="24" right="24" bottom="24" left="24"/>
+            </padding>
+
+            <HBox spacing="12" alignment="CENTER_LEFT">
+                <Label text="Your Drive:"/>
+                <ComboBox fx:id="driveCombo" prefWidth="420" onAction="#loadApplicants"/>
+            </HBox>
+
+            <TableView fx:id="applicantsTable" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="colRoll" text="Roll No" prefWidth="120"/>
+                    <TableColumn fx:id="colName" text="Student Name" prefWidth="210"/>
+                    <TableColumn fx:id="colBranch" text="Branch" prefWidth="90"/>
+                    <TableColumn fx:id="colCgpa" text="CGPA" prefWidth="90"/>
+                    <TableColumn fx:id="colStatus" text="Current Stage" prefWidth="140"/>
+                </columns>
+            </TableView>
+
+            <HBox spacing="10" alignment="CENTER_RIGHT">
+                <TextField fx:id="remarksField" promptText="Shortlist remarks (optional)" HBox.hgrow="ALWAYS"/>
+                <Button text="Shortlist Applicant" onAction="#handleShortlist" styleClass="btn-success"/>
+                <Button text="Reject Applicant" onAction="#handleReject" styleClass="btn-danger"/>
+            </HBox>
+        </VBox>
+    </center>
+</BorderPane>

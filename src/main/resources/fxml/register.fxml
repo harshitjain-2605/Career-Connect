@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.campus.placement.controller.RegisterController">
+    <top>
+        <HBox styleClass="app-header" alignment="CENTER_LEFT" spacing="12">
+            <Label text="Student Self-Registration" styleClass="app-title"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button text="Back to Login" onAction="#handleBackToLogin" styleClass="btn-secondary"/>
+        </HBox>
+    </top>
+
+    <center>
+        <ScrollPane fitToWidth="true">
+            <StackPane>
+                <padding>
+                    <Insets top="24" right="24" bottom="24" left="24"/>
+                </padding>
+                <VBox styleClass="card" spacing="14" maxWidth="640">
+                    <Label text="Create Student Account" styleClass="section-title"/>
+
+                    <GridPane hgap="16" vgap="10">
+                        <columnConstraints>
+                            <ColumnConstraints percentWidth="50"/>
+                            <ColumnConstraints percentWidth="50"/>
+                        </columnConstraints>
+
+                        <VBox spacing="4" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                            <Label text="Roll Number *"/>
+                            <TextField fx:id="rollNoField" promptText="e.g. 102203099"/>
+                        </VBox>
+                        <VBox spacing="4" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                            <Label text="Full Name *"/>
+                            <TextField fx:id="fullNameField" promptText="Full Name"/>
+                        </VBox>
+
+                        <VBox spacing="4" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                            <Label text="Email *"/>
+                            <TextField fx:id="emailField" promptText="name@campus.edu"/>
+                        </VBox>
+                        <VBox spacing="4" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                            <Label text="Phone *"/>
+                            <TextField fx:id="phoneField" promptText="10-digit mobile"/>
+                        </VBox>
+
+                        <VBox spacing="4" GridPane.columnIndex="0" GridPane.rowIndex="2">
+                            <Label text="Branch *"/>
+                            <ComboBox fx:id="branchCombo" maxWidth="Infinity"/>
+                        </VBox>
+                        <VBox spacing="4" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                            <Label text="Batch Year *"/>
+                            <TextField fx:id="batchField" text="2026"/>
+                        </VBox>
+
+                        <VBox spacing="4" GridPane.columnIndex="0" GridPane.rowIndex="3">
+                            <Label text="CGPA (0 - 10) *"/>
+                            <TextField fx:id="cgpaField" promptText="e.g. 8.50"/>
+                        </VBox>
+                        <VBox spacing="4" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                            <Label text="Active Backlogs *"/>
+                            <TextField fx:id="backlogsField" text="0"/>
+                        </VBox>
+                    </GridPane>
+
+                    <VBox spacing="4">
+                        <Label text="Skills (comma-separated)"/>
+                        <TextArea fx:id="skillsArea" prefRowCount="2" promptText="Java, SQL, JavaFX, Python"/>
+                    </VBox>
+
+                    <VBox spacing="4">
+                        <Label text="Password (min 6 chars) *"/>
+                        <PasswordField fx:id="passwordField" promptText="Choose a strong password"/>
+                    </VBox>
+
+                    <Label fx:id="errorLabel" styleClass="error-label" wrapText="true"/>
+
+                    <HBox spacing="12" alignment="CENTER_RIGHT">
+                        <Button text="Cancel" onAction="#handleBackToLogin" styleClass="btn-secondary"/>
+                        <Button fx:id="registerButton" text="Register" onAction="#handleRegister" styleClass="btn-primary"/>
+                    </HBox>
+                </VBox>
+            </StackPane>
+        </ScrollPane>
+    </center>
+</BorderPane>

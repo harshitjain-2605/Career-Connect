@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.campus.placement.controller.AdminApplicantsController">
+    <left>
+        <VBox styleClass="sidebar" spacing="6">
+            <Label text="TPO / Admin Portal" styleClass="sidebar-brand"/>
+            <Button text="Dashboard" onAction="#navDashboard" styleClass="sidebar-btn"/>
+            <Button text="Companies" onAction="#navCompanies" styleClass="sidebar-btn"/>
+            <Button text="Placement Drives" onAction="#navDrives" styleClass="sidebar-btn"/>
+            <Button text="Applicant Pipeline" onAction="#navApplicants" styleClass="sidebar-btn-active"/>
+            <Button text="Manage Students" onAction="#navStudents" styleClass="sidebar-btn"/>
+            <Button text="Reports &amp; Audit" onAction="#navReports" styleClass="sidebar-btn"/>
+            <Button text="Placement Policy" onAction="#navPolicy" styleClass="sidebar-btn"/>
+            <Region VBox.vgrow="ALWAYS"/>
+            <Button text="Logout" onAction="#handleLogout" styleClass="btn-danger" maxWidth="Infinity"/>
+        </VBox>
+    </left>
+
+    <center>
+        <VBox spacing="14">
+            <padding>
+                <Insets top="24" right="24" bottom="24" left="24"/>
+            </padding>
+
+            <Label text="Applicant Pipeline &amp; Offer Issuance" styleClass="page-title"/>
+
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Label text="Select Drive:"/>
+                <ComboBox fx:id="driveCombo" prefWidth="420" onAction="#loadApplicants"/>
+            </HBox>
+
+            <TableView fx:id="applicantsTable" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="colRoll" text="Roll No" prefWidth="110"/>
+                    <TableColumn fx:id="colName" text="Student Name" prefWidth="190"/>
+                    <TableColumn fx:id="colBranch" text="Branch" prefWidth="80"/>
+                    <TableColumn fx:id="colCgpa" text="CGPA" prefWidth="80"/>
+                    <TableColumn fx:id="colStatus" text="Current Stage" prefWidth="130"/>
+                </columns>
+            </TableView>
+
+            <VBox styleClass="card" spacing="10">
+                <Label text="Move Selected Applicant to Next Stage (Validated Pipeline)" styleClass="section-title"/>
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <TextField fx:id="remarksField" promptText="Stage remarks (optional)" HBox.hgrow="ALWAYS"/>
+                    <Label text="Joining Date (if Selecting):"/>
+                    <DatePicker fx:id="joiningDatePicker"/>
+                </HBox>
+                <HBox spacing="10">
+                    <Button text="Shortlist" onAction="#markShortlisted" styleClass="btn-primary"/>
+                    <Button text="Move to Test" onAction="#markTest" styleClass="btn-primary"/>
+                    <Button text="Move to Interview" onAction="#markInterview" styleClass="btn-primary"/>
+                    <Button text="Select &amp; Issue Offer" onAction="#markSelected" styleClass="btn-success"/>
+                    <Button text="Reject" onAction="#markRejected" styleClass="btn-danger"/>
+                </HBox>
+            </VBox>
+        </VBox>
+    </center>
+</BorderPane>

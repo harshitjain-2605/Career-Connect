@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.campus.placement.controller.StudentApplicationsController">
+    <left>
+        <VBox styleClass="sidebar" spacing="6">
+            <Label text="Student Portal" styleClass="sidebar-brand"/>
+            <Button text="Dashboard" onAction="#navDashboard" styleClass="sidebar-btn"/>
+            <Button text="Browse Drives" onAction="#navDrives" styleClass="sidebar-btn"/>
+            <Button text="Applications &amp; Offers" onAction="#navApplications" styleClass="sidebar-btn-active"/>
+            <Button text="Profile &amp; Resume" onAction="#navProfile" styleClass="sidebar-btn"/>
+            <Button text="Placement Policy" onAction="#navPolicy" styleClass="sidebar-btn"/>
+            <Region VBox.vgrow="ALWAYS"/>
+            <Button text="Logout" onAction="#handleLogout" styleClass="btn-danger" maxWidth="Infinity"/>
+        </VBox>
+    </left>
+
+    <center>
+        <VBox spacing="14">
+            <padding>
+                <Insets top="24" right="24" bottom="24" left="24"/>
+            </padding>
+
+            <Label text="My Applications &amp; Offers" styleClass="page-title"/>
+
+            <HBox spacing="14" VBox.vgrow="ALWAYS">
+                <VBox spacing="6" HBox.hgrow="ALWAYS">
+                    <Label text="Applications (select to view timeline)" styleClass="section-title"/>
+                    <TableView fx:id="applicationsTable" VBox.vgrow="ALWAYS">
+                        <columns>
+                            <TableColumn fx:id="colAppCompany" text="Company" prefWidth="170"/>
+                            <TableColumn fx:id="colAppRole" text="Role" prefWidth="170"/>
+                            <TableColumn fx:id="colAppPkg" text="Package" prefWidth="90"/>
+                            <TableColumn fx:id="colAppStatus" text="Stage" prefWidth="110"/>
+                        </columns>
+                    </TableView>
+                </VBox>
+
+                <VBox spacing="6" prefWidth="310">
+                    <Label text="Status Timeline" styleClass="section-title"/>
+                    <ListView fx:id="timelineListView" VBox.vgrow="ALWAYS"/>
+                </VBox>
+            </HBox>
+
+            <VBox spacing="8" prefHeight="220">
+                <HBox alignment="CENTER_LEFT" spacing="12">
+                    <Label text="My Job Offers" styleClass="section-title"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <Button text="Accept Offer" onAction="#handleAcceptOffer" styleClass="btn-success"/>
+                    <Button text="Decline Offer" onAction="#handleDeclineOffer" styleClass="btn-danger"/>
+                </HBox>
+                <TableView fx:id="offersTable" VBox.vgrow="ALWAYS">
+                    <columns>
+                        <TableColumn fx:id="colOfferCompany" text="Company" prefWidth="200"/>
+                        <TableColumn fx:id="colOfferRole" text="Role" prefWidth="200"/>
+                        <TableColumn fx:id="colOfferPkg" text="Package (LPA)" prefWidth="110"/>
+                        <TableColumn fx:id="colOfferJoining" text="Joining Date" prefWidth="120"/>
+                        <TableColumn fx:id="colOfferStatus" text="Status" prefWidth="110"/>
+                    </columns>
+                </TableView>
+            </VBox>
+        </VBox>
+    </center>
+</BorderPane>

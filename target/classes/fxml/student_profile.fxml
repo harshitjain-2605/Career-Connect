@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.campus.placement.controller.StudentProfileController">
+    <left>
+        <VBox styleClass="sidebar" spacing="6">
+            <Label text="Student Portal" styleClass="sidebar-brand"/>
+            <Button text="Dashboard" onAction="#navDashboard" styleClass="sidebar-btn"/>
+            <Button text="Browse Drives" onAction="#navDrives" styleClass="sidebar-btn"/>
+            <Button text="Applications &amp; Offers" onAction="#navApplications" styleClass="sidebar-btn"/>
+            <Button text="Profile &amp; Resume" onAction="#navProfile" styleClass="sidebar-btn-active"/>
+            <Button text="Placement Policy" onAction="#navPolicy" styleClass="sidebar-btn"/>
+            <Region VBox.vgrow="ALWAYS"/>
+            <Button text="Logout" onAction="#handleLogout" styleClass="btn-danger" maxWidth="Infinity"/>
+        </VBox>
+    </left>
+
+    <center>
+        <ScrollPane fitToWidth="true">
+            <VBox spacing="18">
+                <padding>
+                    <Insets top="24" right="24" bottom="24" left="24"/>
+                </padding>
+                <Label text="My Profile &amp; Resume" styleClass="page-title"/>
+
+                <VBox styleClass="card" spacing="14" maxWidth="680">
+                    <GridPane hgap="16" vgap="10">
+                        <columnConstraints>
+                            <ColumnConstraints percentWidth="50"/>
+                            <ColumnConstraints percentWidth="50"/>
+                        </columnConstraints>
+
+                        <VBox spacing="4" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                            <Label text="Roll Number"/>
+                            <TextField fx:id="rollNoField" editable="false"/>
+                        </VBox>
+                        <VBox spacing="4" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                            <Label text="Email"/>
+                            <TextField fx:id="emailField" editable="false"/>
+                        </VBox>
+
+                        <VBox spacing="4" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                            <Label text="Full Name *"/>
+                            <TextField fx:id="fullNameField"/>
+                        </VBox>
+                        <VBox spacing="4" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                            <Label text="Phone *"/>
+                            <TextField fx:id="phoneField"/>
+                        </VBox>
+
+                        <VBox spacing="4" GridPane.columnIndex="0" GridPane.rowIndex="2">
+                            <Label text="Branch *"/>
+                            <ComboBox fx:id="branchCombo" maxWidth="Infinity"/>
+                        </VBox>
+                        <VBox spacing="4" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                            <Label text="Batch Year *"/>
+                            <TextField fx:id="batchField"/>
+                        </VBox>
+
+                        <VBox spacing="4" GridPane.columnIndex="0" GridPane.rowIndex="3">
+                            <Label text="CGPA (0 - 10) *"/>
+                            <TextField fx:id="cgpaField"/>
+                        </VBox>
+                        <VBox spacing="4" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                            <Label text="Active Backlogs *"/>
+                            <TextField fx:id="backlogsField"/>
+                        </VBox>
+                    </GridPane>
+
+                    <VBox spacing="4">
+                        <Label text="Skills"/>
+                        <TextArea fx:id="skillsArea" prefRowCount="2"/>
+                    </VBox>
+
+                    <HBox spacing="12" alignment="CENTER_LEFT">
+                        <Label text="Resume:"/>
+                        <Label fx:id="resumePathLabel" text="No resume uploaded" style="-fx-text-fill: #475569;"/>
+                        <Region HBox.hgrow="ALWAYS"/>
+                        <Button text="Upload Resume (PDF/DOC)" onAction="#handleUploadResume" styleClass="btn-secondary"/>
+                    </HBox>
+
+                    <Label fx:id="errorLabel" styleClass="error-label" wrapText="true"/>
+
+                    <HBox alignment="CENTER_RIGHT">
+                        <Button fx:id="saveButton" text="Save Profile" onAction="#handleSaveProfile" styleClass="btn-primary"/>
+                    </HBox>
+                </VBox>
+            </VBox>
+        </ScrollPane>
+    </center>
+</BorderPane>
