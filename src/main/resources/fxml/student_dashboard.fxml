@@ -4,56 +4,287 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="com.campus.placement.controller.StudentDashboardController">
+
+    <!-- SIDEBAR -->
     <left>
-        <VBox styleClass="sidebar" spacing="6">
-            <Label text="Student Portal" styleClass="sidebar-brand"/>
-            <Button text="Dashboard" onAction="#navDashboard" styleClass="sidebar-btn-active"/>
-            <Button text="Browse Drives" onAction="#navDrives" styleClass="sidebar-btn"/>
-            <Button text="Applications &amp; Offers" onAction="#navApplications" styleClass="sidebar-btn"/>
-            <Button text="Profile &amp; Resume" onAction="#navProfile" styleClass="sidebar-btn"/>
-            <Button text="Placement Policy" onAction="#navPolicy" styleClass="sidebar-btn"/>
+        <VBox styleClass="sidebar" spacing="10">
+            <Label text="CAREER CONNECT" styleClass="sidebar-brand"/>
+            <Label text="STUDENT PORTAL" styleClass="sidebar-caption"/>
+
+            <Region prefHeight="15"/>
+
+            <Button text="Dashboard"
+                    onAction="#navDashboard"
+                    styleClass="sidebar-btn-active"
+                    maxWidth="Infinity"/>
+
+            <Button text="Browse Drives"
+                    onAction="#navDrives"
+                    styleClass="sidebar-btn"
+                    maxWidth="Infinity"/>
+
+            <Button text="Applications &amp; Offers"
+                    onAction="#navApplications"
+                    styleClass="sidebar-btn"
+                    maxWidth="Infinity"/>
+
+            <Button text="Profile &amp; Resume"
+                    onAction="#navProfile"
+                    styleClass="sidebar-btn"
+                    maxWidth="Infinity"/>
+
+            <Button text="Placement Policy"
+                    onAction="#navPolicy"
+                    styleClass="sidebar-btn"
+                    maxWidth="Infinity"/>
+
             <Region VBox.vgrow="ALWAYS"/>
-            <Button text="Logout" onAction="#handleLogout" styleClass="btn-danger" maxWidth="Infinity"/>
+
+            <VBox styleClass="sidebar-footer" spacing="5">
+                <Label text="YOUR CAREER JOURNEY"
+                       styleClass="sidebar-footer-title"/>
+                <Label text="Stay prepared. Keep moving."
+                       styleClass="sidebar-footer-text"/>
+            </VBox>
+
+            <Button text="Logout"
+                    onAction="#handleLogout"
+                    styleClass="btn-danger"
+                    maxWidth="Infinity"/>
         </VBox>
     </left>
 
+    <!-- MAIN DASHBOARD -->
     <center>
-        <VBox spacing="18">
-            <padding>
-                <Insets top="24" right="24" bottom="24" left="24"/>
-            </padding>
+        <ScrollPane fitToWidth="true"
+                    styleClass="dashboard-scroll"
+                    hbarPolicy="NEVER">
 
-            <Label fx:id="welcomeLabel" text="Welcome" styleClass="page-title"/>
+            <VBox styleClass="dashboard-content" spacing="22">
 
-            <HBox spacing="14">
-                <VBox styleClass="kpi-card" HBox.hgrow="ALWAYS" spacing="4">
-                    <Label text="Branch &amp; Batch" styleClass="kpi-label"/>
-                    <Label fx:id="branchBatchLabel" text="-" styleClass="kpi-value"/>
-                </VBox>
-                <VBox styleClass="kpi-card" HBox.hgrow="ALWAYS" spacing="4">
-                    <Label text="CGPA / Backlogs" styleClass="kpi-label"/>
-                    <Label fx:id="cgpaLabel" text="-" styleClass="kpi-value"/>
-                </VBox>
-                <VBox styleClass="kpi-card" HBox.hgrow="ALWAYS" spacing="4">
-                    <Label text="Applications" styleClass="kpi-label"/>
-                    <Label fx:id="appCountLabel" text="0" styleClass="kpi-value"/>
-                </VBox>
-                <VBox styleClass="kpi-card" HBox.hgrow="ALWAYS" spacing="4">
-                    <Label text="Offers" styleClass="kpi-label"/>
-                    <Label fx:id="offerCountLabel" text="0" styleClass="kpi-value"/>
-                </VBox>
-            </HBox>
+                <padding>
+                    <Insets top="28" right="30" bottom="30" left="30"/>
+                </padding>
 
-            <VBox styleClass="card" spacing="10" VBox.vgrow="ALWAYS">
-                <HBox alignment="CENTER_LEFT" spacing="12">
-                    <Label text="Notifications" styleClass="section-title"/>
-                    <Region HBox.hgrow="ALWAYS"/>
-                    <Button text="Mark Selected as Read" onAction="#handleMarkRead" styleClass="btn-secondary"/>
+                <!-- WELCOME SECTION -->
+                <VBox styleClass="welcome-banner" spacing="10">
+                    <Label text="YOUR STUDENT DASHBOARD"
+                           styleClass="welcome-eyebrow"/>
+
+                    <Label fx:id="welcomeLabel"
+                           text="Welcome"
+                           styleClass="welcome-title"/>
+
+                    <Label text="Track your placement journey and discover opportunities built for you."
+                           styleClass="welcome-description"/>
+
+                    <HBox spacing="12">
+                        <Button text="Explore Opportunities  →"
+                                onAction="#navDrives"
+                                styleClass="hero-button"/>
+
+                        <Button text="My Applications"
+                                onAction="#navApplications"
+                                styleClass="hero-button-secondary"/>
+                    </HBox>
+                </VBox>
+
+                <!-- STATISTICS -->
+                <VBox spacing="12">
+                    <Label text="YOUR OVERVIEW"
+                           styleClass="dashboard-eyebrow"/>
+
+                    <HBox spacing="14">
+
+                        <!-- Academic Info -->
+                        <VBox styleClass="stat-card stat-card-purple"
+                              HBox.hgrow="ALWAYS"
+                              spacing="10">
+
+                            <Label text="🎓"
+                                   styleClass="stat-icon"/>
+
+                            <Label text="BRANCH &amp; BATCH"
+                                   styleClass="kpi-label"/>
+
+                            <Label fx:id="branchBatchLabel"
+                                   text="-"
+                                   styleClass="kpi-value"/>
+
+                            <Label text="Academic information"
+                                   styleClass="stat-caption"/>
+                        </VBox>
+
+                        <!-- CGPA -->
+                        <VBox styleClass="stat-card stat-card-pink"
+                              HBox.hgrow="ALWAYS"
+                              spacing="10">
+
+                            <Label text="⭐"
+                                   styleClass="stat-icon"/>
+
+                            <Label text="CGPA &amp; BACKLOGS"
+                                   styleClass="kpi-label"/>
+
+                            <Label fx:id="cgpaLabel"
+                                   text="-"
+                                   styleClass="kpi-value"/>
+
+                            <Label text="Academic performance"
+                                   styleClass="stat-caption"/>
+                        </VBox>
+
+                        <!-- Applications -->
+                        <VBox styleClass="stat-card stat-card-blue"
+                              HBox.hgrow="ALWAYS"
+                              spacing="10">
+
+                            <Label text="📨"
+                                   styleClass="stat-icon"/>
+
+                            <Label text="APPLICATIONS"
+                                   styleClass="kpi-label"/>
+
+                            <Label fx:id="appCountLabel"
+                                   text="0"
+                                   styleClass="kpi-value"/>
+
+                            <Label text="Your applied opportunities"
+                                   styleClass="stat-caption"/>
+                        </VBox>
+
+                        <!-- Offers -->
+                        <VBox styleClass="stat-card stat-card-green"
+                              HBox.hgrow="ALWAYS"
+                              spacing="10">
+
+                            <Label text="🎉"
+                                   styleClass="stat-icon"/>
+
+                            <Label text="OFFERS"
+                                   styleClass="kpi-label"/>
+
+                            <Label fx:id="offerCountLabel"
+                                   text="0"
+                                   styleClass="kpi-value"/>
+
+                            <Label text="Your achievements"
+                                   styleClass="stat-caption"/>
+                        </VBox>
+
+                    </HBox>
+                </VBox>
+
+                <!-- QUICK ACTIONS -->
+                <VBox spacing="12">
+                    <Label text="QUICK ACTIONS"
+                           styleClass="dashboard-eyebrow"/>
+
+                    <HBox spacing="14">
+
+                        <VBox styleClass="quick-action-card"
+                              HBox.hgrow="ALWAYS"
+                              spacing="8">
+
+                            <Label text="🚀"
+                                   styleClass="quick-action-icon"/>
+
+                            <Label text="Find Opportunities"
+                                   styleClass="quick-action-title"/>
+
+                            <Label text="Explore companies and placement drives."
+                                   styleClass="quick-action-description"
+                                   wrapText="true"/>
+
+                            <Button text="Browse Drives →"
+                                    onAction="#navDrives"
+                                    styleClass="quick-action-button"/>
+                        </VBox>
+
+                        <VBox styleClass="quick-action-card"
+                              HBox.hgrow="ALWAYS"
+                              spacing="8">
+
+                            <Label text="📋"
+                                   styleClass="quick-action-icon"/>
+
+                            <Label text="Track Applications"
+                                   styleClass="quick-action-title"/>
+
+                            <Label text="Check your application progress and offers."
+                                   styleClass="quick-action-description"
+                                   wrapText="true"/>
+
+                            <Button text="View Applications →"
+                                    onAction="#navApplications"
+                                    styleClass="quick-action-button"/>
+                        </VBox>
+
+                        <VBox styleClass="quick-action-card"
+                              HBox.hgrow="ALWAYS"
+                              spacing="8">
+
+                            <Label text="👤"
+                                   styleClass="quick-action-icon"/>
+
+                            <Label text="Update Your Profile"
+                                   styleClass="quick-action-title"/>
+
+                            <Label text="Keep your details and resume updated."
+                                   styleClass="quick-action-description"
+                                   wrapText="true"/>
+
+                            <Button text="Edit Profile →"
+                                    onAction="#navProfile"
+                                    styleClass="quick-action-button"/>
+                        </VBox>
+
+                    </HBox>
+                </VBox>
+
+                <!-- NOTIFICATIONS -->
+                <VBox styleClass="notification-card"
+                      spacing="14">
+
+                    <HBox alignment="CENTER_LEFT" spacing="10">
+                        <VBox spacing="4">
+                            <Label text="Notifications"
+                                   styleClass="section-title"/>
+
+                            <Label text="Updates regarding your placement journey"
+                                   styleClass="notification-subtitle"/>
+                        </VBox>
+
+                        <Region HBox.hgrow="ALWAYS"/>
+
+                        <Button text="Mark Selected as Read"
+                                onAction="#handleMarkRead"
+                                styleClass="btn-secondary"/>
+                    </HBox>
+
+                    <ListView fx:id="notificationsListView"
+                              prefHeight="230"
+                              minHeight="180"
+                              styleClass="notification-list">
+                        <placeholder>
+                            <Label text="You're all caught up! No notifications yet."
+                                   styleClass="empty-notification"/>
+                        </placeholder>
+                    </ListView>
+
+                </VBox>
+
+                <!-- FOOTER -->
+                <HBox alignment="CENTER">
+                    <Label text="CAREER CONNECT  •  Your journey from campus to career."
+                           styleClass="dashboard-footer"/>
                 </HBox>
-                <ListView fx:id="notificationsListView" VBox.vgrow="ALWAYS"/>
+
             </VBox>
-        </VBox>
+        </ScrollPane>
     </center>
+
 </BorderPane>

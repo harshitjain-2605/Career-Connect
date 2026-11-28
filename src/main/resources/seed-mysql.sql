@@ -150,3 +150,140 @@ INSERT INTO notifications (user_id, title, message, is_read) VALUES
 
 INSERT INTO audit_log (actor_user_id, action, entity_type, entity_id, details) VALUES
 (1, 'SEED_INIT', 'SYSTEM', NULL, 'Initial seed data loaded');
+
+-- =========================================================
+-- ADDITIONAL SHOWCASE STUDENT ACCOUNTS
+-- Run AFTER your original seed-mysql.sql
+-- =========================================================
+
+INSERT INTO users (id, email, password_hash, role, company_id, active) VALUES
+(30, 'naina.verma@campus.edu',
+ '65536:Y2FtcHVzX3N0dV9zYWx0XzE=:U0zFNS5PUYbT4cP0ClKDZsQ3RA0jErMfEevNj0AmPTg=',
+ 'STUDENT', NULL, 1),
+(31, 'raghav.malhotra@campus.edu',
+ '65536:Y2FtcHVzX3N0dV9zYWx0XzE=:U0zFNS5PUYbT4cP0ClKDZsQ3RA0jErMfEevNj0AmPTg=',
+ 'STUDENT', NULL, 1);
+
+INSERT INTO students
+(id, user_id, roll_no, full_name, email, phone, branch, batch_year, cgpa, active_backlogs, skills, blocked)
+VALUES
+(27, 30, '102203008', 'Naina Verma',
+ 'naina.verma@campus.edu', '9811100027',
+ 'CSE', 2026, 9.20, 0,
+ 'Java, Python, DSA, Machine Learning, SQL, Git', 0),
+
+(28, 31, '102204006', 'Raghav Malhotra',
+ 'raghav.malhotra@campus.edu', '9811100028',
+ 'ECE', 2026, 8.60, 0,
+ 'C++, Embedded C, IoT, Python, MATLAB, Verilog', 0);
+
+-- =========================================================
+-- ADDITIONAL PLACEMENT DRIVES
+-- =========================================================
+
+INSERT INTO drives
+(id, company_id, job_role, package_lpa, location, job_type,
+ drive_date, last_date, min_cgpa, max_backlogs, batch_year, status, description)
+VALUES
+(13, 3, 'Software Engineer - Product', 42.00, 'Hyderabad',
+ 'FULL_TIME', '2026-12-18', '2026-12-10',
+ 8.50, 0, 2026, 'OPEN',
+ 'Product development, cloud platforms and software engineering.'),
+
+(14, 4, 'Software Development Engineer', 36.00, 'Bengaluru',
+ 'FULL_TIME', '2026-12-20', '2026-12-12',
+ 8.00, 0, 2026, 'OPEN',
+ 'Backend development, problem solving and distributed systems.'),
+
+(15, 2, 'Specialist Programmer', 9.50, 'Bengaluru',
+ 'FULL_TIME', '2026-12-21', '2026-12-15',
+ 7.80, 0, 2026, 'OPEN',
+ 'Software engineering, programming and application development.');
+
+INSERT INTO drive_branches (drive_id, branch) VALUES
+(13, 'CSE'),
+(14, 'CSE'),
+(14, 'ECE'),
+(15, 'CSE'),
+(15, 'ECE'),
+(15, 'ME'),
+(15, 'EE'),
+(15, 'CHE');
+
+-- =========================================================
+-- ADDITIONAL APPLICATIONS
+-- =========================================================
+
+INSERT INTO applications (id, student_id, drive_id, status) VALUES
+(15, 27, 13, 'SELECTED'),
+(16, 27, 14, 'INTERVIEW'),
+(17, 28, 14, 'SELECTED'),
+(18, 28, 15, 'APPLIED');
+
+-- =========================================================
+-- APPLICATION STATUS HISTORY
+-- =========================================================
+
+INSERT INTO application_status_history
+(application_id, from_status, to_status, changed_by_user_id, remarks)
+VALUES
+(15, NULL, 'APPLIED', 30, 'Naina applied for the Microsoft drive'),
+(15, 'APPLIED', 'SHORTLISTED', 1, 'CGPA and branch eligibility verified'),
+(15, 'SHORTLISTED', 'TEST', 1, 'Cleared coding assessment'),
+(15, 'TEST', 'INTERVIEW', 1, 'Technical interview cleared'),
+(15, 'INTERVIEW', 'SELECTED', 1, 'Final selection'),
+
+(16, NULL, 'APPLIED', 30, 'Naina applied for Amazon SDE'),
+(16, 'APPLIED', 'SHORTLISTED', 1, 'Profile shortlisted'),
+(16, 'SHORTLISTED', 'TEST', 1, 'Coding test cleared'),
+(16, 'TEST', 'INTERVIEW', 1, 'Advanced to interview'),
+
+(17, NULL, 'APPLIED', 31, 'Raghav applied for Amazon SDE'),
+(17, 'APPLIED', 'SHORTLISTED', 1, 'Profile shortlisted'),
+(17, 'SHORTLISTED', 'TEST', 1, 'Assessment cleared'),
+(17, 'TEST', 'INTERVIEW', 1, 'Interview completed'),
+(17, 'INTERVIEW', 'SELECTED', 1, 'Final selection');
+
+-- =========================================================
+-- ADDITIONAL OFFERS
+-- =========================================================
+
+INSERT INTO offers
+(id, application_id, student_id, drive_id, package_lpa, joining_date, status, responded_at)
+VALUES
+(4, 15, 27, 13, 42.00, '2027-07-01', 'ACCEPTED', NOW()),
+(5, 17, 28, 14, 36.00, '2027-07-01', 'PENDING', NULL);
+
+-- =========================================================
+-- ADDITIONAL STUDENT NOTIFICATIONS
+-- =========================================================
+
+INSERT INTO notifications (user_id, title, message, is_read) VALUES
+(30, 'Congratulations! Microsoft Offer Received',
+ 'You have been selected for Software Engineer - Product at Microsoft with a 42 LPA package.',
+ 0),
+
+(30, 'Amazon Interview Update',
+ 'Your Amazon SDE application has progressed to the interview stage.',
+ 0),
+
+(31, 'Amazon Placement Update',
+ 'Congratulations! You have been selected for the Amazon Software Development Engineer role.',
+ 0),
+
+(31, 'New Placement Drive',
+ 'Infosys Specialist Programmer drive is open. Check your eligibility and apply.',
+ 0);
+
+-- =========================================================
+-- AUDIT LOG
+-- =========================================================
+
+INSERT INTO audit_log
+(actor_user_id, action, entity_type, entity_id, details)
+VALUES
+(1, 'DEMO_DATA_ADDED', 'STUDENT', 27, 'Added showcase student Naina Verma'),
+(1, 'DEMO_DATA_ADDED', 'STUDENT', 28, 'Added showcase student Raghav Malhotra'),
+(1, 'DEMO_DATA_ADDED', 'DRIVE', 13, 'Added Microsoft Product Software Engineer demo drive'),
+(1, 'DEMO_DATA_ADDED', 'DRIVE', 14, 'Added Amazon SDE demo drive'),
+(1, 'DEMO_DATA_ADDED', 'DRIVE', 15, 'Added Infosys Specialist Programmer demo drive');

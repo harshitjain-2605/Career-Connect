@@ -84,3 +84,90 @@ Nov 27, 2026 12:42:32 PM com.campus.placement.rest.PlacementRestServer sendError
 WARNING: REST error: You have already applied to this drive.
 Nov 27, 2026 12:43:51 PM com.campus.placement.rest.PlacementRestServer sendError
 WARNING: REST error: stream closed
+Nov 28, 2026 9:58:29 PM com.campus.placement.util.LoggerUtil init
+INFO: Logging initialized (console + rotating logs/app.log)
+Nov 28, 2026 9:58:29 PM com.campus.placement.app.MainApp init
+INFO: Application init() started.
+Nov 28, 2026 9:58:29 PM com.campus.placement.db.DatabaseInitializer initialize
+INFO: Database already initialized with existing data.
+Nov 28, 2026 9:58:30 PM com.campus.placement.app.MainApp start
+INFO: Primary Stage displayed with Login screen.
+Nov 28, 2026 9:58:43 PM com.campus.placement.app.SceneManager lambda$runAsync$4
+SEVERE: Background task failed
+com.campus.placement.exception.AuthenticationException: Invalid email or password.
+	at com.campus.placement.service.AuthService.login(AuthService.java:62)
+	at com.campus.placement.controller.LoginController.lambda$handleLogin$0(LoginController.java:44)
+	at com.campus.placement.app.SceneManager$1.call(SceneManager.java:168)
+	at javafx.graphics@21.0.5/javafx.concurrent.Task$TaskCallable.call(Task.java:1399)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+Nov 28, 2026 9:59:05 PM com.campus.placement.app.SceneManager lambda$runAsync$4
+SEVERE: Background task failed
+com.campus.placement.exception.AuthenticationException: Invalid email or password.
+	at com.campus.placement.service.AuthService.login(AuthService.java:62)
+	at com.campus.placement.controller.LoginController.lambda$handleLogin$0(LoginController.java:44)
+	at com.campus.placement.app.SceneManager$1.call(SceneManager.java:168)
+	at javafx.graphics@21.0.5/javafx.concurrent.Task$TaskCallable.call(Task.java:1399)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+Nov 28, 2026 9:59:06 PM com.campus.placement.app.SceneManager lambda$runAsync$4
+SEVERE: Background task failed
+com.campus.placement.exception.AuthenticationException: Invalid email or password.
+	at com.campus.placement.service.AuthService.login(AuthService.java:62)
+	at com.campus.placement.controller.LoginController.lambda$handleLogin$0(LoginController.java:44)
+	at com.campus.placement.app.SceneManager$1.call(SceneManager.java:168)
+	at javafx.graphics@21.0.5/javafx.concurrent.Task$TaskCallable.call(Task.java:1399)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+Nov 28, 2026 9:59:07 PM com.campus.placement.app.SceneManager lambda$runAsync$4
+SEVERE: Background task failed
+com.campus.placement.exception.AuthenticationException: Invalid email or password.
+	at com.campus.placement.service.AuthService.login(AuthService.java:62)
+	at com.campus.placement.controller.LoginController.lambda$handleLogin$0(LoginController.java:44)
+	at com.campus.placement.app.SceneManager$1.call(SceneManager.java:168)
+	at javafx.graphics@21.0.5/javafx.concurrent.Task$TaskCallable.call(Task.java:1399)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+Nov 28, 2026 10:28:17 PM com.campus.placement.app.SceneManager switchToFxml
+SEVERE: Failed to load FXML: /fxml/student_dashboard.fxml
+javafx.fxml.LoadException: 
+/C:/Users/hp/Desktop/New%20folder/Career-Connect/target/classes/fxml/student_dashboard.fxml
+
+	at javafx.fxml@21.0.5/javafx.fxml.FXMLLoader.constructLoadException(FXMLLoader.java:2722)
+	at javafx.fxml@21.0.5/javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2665)
+	at javafx.fxml@21.0.5/javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2563)
+	at javafx.fxml@21.0.5/javafx.fxml.FXMLLoader.load(FXMLLoader.java:2531)
+	at com.campus.placement.app.SceneManager.switchToFxml(SceneManager.java:112)
+	at com.campus.placement.app.SceneManager.loginAndRoute(SceneManager.java:87)
+	at com.campus.placement.controller.LoginController.lambda$handleLogin$1(LoginController.java:47)
+	at com.campus.placement.app.SceneManager.lambda$runAsync$3(SceneManager.java:171)
+	at javafx.base@21.0.5/com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:86)
+	at javafx.base@21.0.5/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:232)
+	at javafx.base@21.0.5/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:189)
+	at javafx.base@21.0.5/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at javafx.base@21.0.5/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21.0.5/com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at javafx.base@21.0.5/com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:54)
+	at javafx.base@21.0.5/javafx.event.Event.fireEvent(Event.java:198)
+	at javafx.graphics@21.0.5/javafx.concurrent.EventHelper.fireEvent(EventHelper.java:219)
+	at javafx.graphics@21.0.5/javafx.concurrent.Task.fireEvent(Task.java:1332)
+	at javafx.graphics@21.0.5/javafx.concurrent.Task.setState(Task.java:725)
+	at javafx.graphics@21.0.5/javafx.concurrent.Task$TaskCallable.lambda$call$1(Task.java:1410)
+	at javafx.graphics@21.0.5/com.sun.javafx.application.PlatformImpl.lambda$runLater$10(PlatformImpl.java:456)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400)
+	at javafx.graphics@21.0.5/com.sun.javafx.application.PlatformImpl.lambda$runLater$11(PlatformImpl.java:455)
+	at javafx.graphics@21.0.5/com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95)
+	at javafx.graphics@21.0.5/com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at javafx.graphics@21.0.5/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:185)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: javax.xml.stream.XMLStreamException: ParseError at [row,col]:[2,6]
+Message: The processing instruction target matching "[xX][mM][lL]" is not allowed.
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLStreamReaderImpl.next(XMLStreamReaderImpl.java:652)
+	at java.xml/javax.xml.stream.util.StreamReaderDelegate.next(StreamReaderDelegate.java:84)
+	at javafx.fxml@21.0.5/javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2635)
+	... 25 more
+

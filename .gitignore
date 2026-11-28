@@ -1,0 +1,12 @@
+target/
+logs/
+backups/
+resumes/
+.idea/
+*.iml
+.env
+.env.*
+!.env.example
+.DS_Store
+Thumbs.db
+desktop.ini

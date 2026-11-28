@@ -1,3 +1,4 @@
+
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
@@ -5,67 +6,279 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.campus.placement.controller.AdminDashboardController">
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.campus.placement.controller.AdminDashboardController"
+            style="-fx-background-color: #F7F6FC;">
+
+    <!-- SIDEBAR -->
     <left>
-        <VBox styleClass="sidebar" spacing="6">
-            <Label text="TPO / Admin Portal" styleClass="sidebar-brand"/>
-            <Button text="Dashboard" onAction="#navDashboard" styleClass="sidebar-btn-active"/>
-            <Button text="Companies" onAction="#navCompanies" styleClass="sidebar-btn"/>
-            <Button text="Placement Drives" onAction="#navDrives" styleClass="sidebar-btn"/>
-            <Button text="Applicant Pipeline" onAction="#navApplicants" styleClass="sidebar-btn"/>
-            <Button text="Manage Students" onAction="#navStudents" styleClass="sidebar-btn"/>
-            <Button text="Reports &amp; Audit" onAction="#navReports" styleClass="sidebar-btn"/>
-            <Button text="Placement Policy" onAction="#navPolicy" styleClass="sidebar-btn"/>
+        <VBox styleClass="sidebar" spacing="9" prefWidth="225">
+            <padding>
+                <Insets top="28" right="16" bottom="20" left="16"/>
+            </padding>
+
+            <Label text="CAREER CONNECT"
+                   style="-fx-font-size: 19px; -fx-font-weight: 900; -fx-text-fill: white;"/>
+
+            <Label text="PLACEMENT ADMINISTRATION"
+                   style="-fx-font-size: 9px; -fx-text-fill: #D8C5FF; -fx-font-weight: bold;"/>
+
+            <Region prefHeight="18"/>
+
+            <Label text="WORKSPACE"
+                   style="-fx-font-size: 10px; -fx-font-weight: bold; -fx-text-fill: #C4A8F8;"/>
+
+            <Button text="◈   Dashboard"
+                    onAction="#navDashboard"
+                    styleClass="sidebar-btn-active"
+                    maxWidth="Infinity"/>
+
+            <Button text="▣   Companies"
+                    onAction="#navCompanies"
+                    styleClass="sidebar-btn"
+                    maxWidth="Infinity"/>
+
+            <Button text="▤   Placement Drives"
+                    onAction="#navDrives"
+                    styleClass="sidebar-btn"
+                    maxWidth="Infinity"/>
+
+            <Button text="◎   Applicant Pipeline"
+                    onAction="#navApplicants"
+                    styleClass="sidebar-btn"
+                    maxWidth="Infinity"/>
+
+            <Button text="♙   Manage Students"
+                    onAction="#navStudents"
+                    styleClass="sidebar-btn"
+                    maxWidth="Infinity"/>
+
+            <Region prefHeight="12"/>
+
+            <Label text="SYSTEM"
+                   style="-fx-font-size: 10px; -fx-font-weight: bold; -fx-text-fill: #C4A8F8;"/>
+
+            <Button text="▥   Reports &amp; Audit"
+                    onAction="#navReports"
+                    styleClass="sidebar-btn"
+                    maxWidth="Infinity"/>
+
+            <Button text="◇   Placement Policy"
+                    onAction="#navPolicy"
+                    styleClass="sidebar-btn"
+                    maxWidth="Infinity"/>
+
             <Region VBox.vgrow="ALWAYS"/>
-            <Button text="Logout" onAction="#handleLogout" styleClass="btn-danger" maxWidth="Infinity"/>
+
+            <VBox spacing="4"
+                  style="-fx-background-color: rgba(255,255,255,0.09); -fx-background-radius: 12; -fx-padding: 12;">
+                <Label text="PLACEMENT CELL"
+                       style="-fx-text-fill: #D8C5FF; -fx-font-size: 9px; -fx-font-weight: bold;"/>
+                <Label text="Administrator"
+                       style="-fx-text-fill: white; -fx-font-size: 13px; -fx-font-weight: bold;"/>
+                <Label text="Management Console"
+                       style="-fx-text-fill: #D8C5FF; -fx-font-size: 10px;"/>
+            </VBox>
+
+            <Button text="↪   Logout"
+                    onAction="#handleLogout"
+                    styleClass="btn-danger"
+                    maxWidth="Infinity"/>
         </VBox>
     </left>
 
+    <!-- MAIN CONTENT -->
     <center>
-        <VBox spacing="18">
-            <padding>
-                <Insets top="24" right="24" bottom="24" left="24"/>
-            </padding>
+        <ScrollPane fitToWidth="true"
+                    style="-fx-background-color: transparent; -fx-background: transparent;"
+                    hbarPolicy="NEVER">
+            <VBox spacing="22">
+                <padding>
+                    <Insets top="28" right="30" bottom="30" left="30"/>
+                </padding>
 
-            <Label text="Placement Cell Dashboard" styleClass="page-title"/>
+                <!-- HEADER -->
+                <HBox alignment="CENTER_LEFT" spacing="12">
+                    <VBox spacing="5" HBox.hgrow="ALWAYS">
+                        <Label text="Placement Overview"
+                               style="-fx-font-size: 27px; -fx-font-weight: 900; -fx-text-fill: #32105E;"/>
+                        <Label text="Monitor student placements, recruitment drives and offers."
+                               style="-fx-font-size: 13px; -fx-text-fill: #77718B;"/>
+                    </VBox>
 
-            <HBox spacing="12">
-                <VBox styleClass="kpi-card" HBox.hgrow="ALWAYS" spacing="4">
-                    <Label text="Total Students" styleClass="kpi-label"/>
-                    <Label fx:id="totalStudentsLabel" text="0" styleClass="kpi-value"/>
-                </VBox>
-                <VBox styleClass="kpi-card" HBox.hgrow="ALWAYS" spacing="4">
-                    <Label text="Placed %" styleClass="kpi-label"/>
-                    <Label fx:id="placedPctLabel" text="0%" styleClass="kpi-value"/>
-                </VBox>
-                <VBox styleClass="kpi-card" HBox.hgrow="ALWAYS" spacing="4">
-                    <Label text="Active Drives" styleClass="kpi-label"/>
-                    <Label fx:id="activeDrivesLabel" text="0" styleClass="kpi-value"/>
-                </VBox>
-                <VBox styleClass="kpi-card" HBox.hgrow="ALWAYS" spacing="4">
-                    <Label text="Total Offers" styleClass="kpi-label"/>
-                    <Label fx:id="totalOffersLabel" text="0" styleClass="kpi-value"/>
-                </VBox>
-                <VBox styleClass="kpi-card" HBox.hgrow="ALWAYS" spacing="4">
-                    <Label text="Avg / Max LPA" styleClass="kpi-label"/>
-                    <Label fx:id="avgMaxLabel" text="0 / 0" styleClass="kpi-value"/>
-                </VBox>
-            </HBox>
+                    <VBox alignment="CENTER_RIGHT" spacing="3">
+                        <Label text="CAREER CONNECT"
+                               style="-fx-font-size: 10px; -fx-font-weight: bold; -fx-text-fill: #8B5CF6;"/>
+                        <Label text="ADMIN CONTROL PANEL"
+                               style="-fx-font-size: 9px; -fx-text-fill: #9690A7;"/>
+                    </VBox>
+                </HBox>
 
-            <HBox spacing="16" VBox.vgrow="ALWAYS">
-                <VBox styleClass="card" HBox.hgrow="ALWAYS" spacing="8">
-                    <Label text="Placed Students by Branch" styleClass="section-title"/>
-                    <PieChart fx:id="branchPieChart" VBox.vgrow="ALWAYS"/>
+                <!-- WELCOME BANNER -->
+                <HBox alignment="CENTER_LEFT" spacing="16"
+                       style="-fx-background-color: linear-gradient(to right, #4C1D95, #7C3AED, #9333EA); -fx-background-radius: 18;">
+                    <padding>
+                        <Insets top="22" right="24" bottom="22" left="24"/>
+                    </padding>
+
+                    <VBox spacing="7" HBox.hgrow="ALWAYS">
+                        <Label text="YOUR PLACEMENT COMMAND CENTER"
+                               style="-fx-text-fill: #E9D5FF; -fx-font-size: 10px; -fx-font-weight: bold;"/>
+                        <Label text="Building careers, one placement at a time."
+                               wrapText="true"
+                               style="-fx-text-fill: white; -fx-font-size: 20px; -fx-font-weight: bold;"/>
+                        <Label text="Track campus recruitment activity and placement outcomes from one place."
+               wrapText="true"
+               style="-fx-text-fill: #EDE9FE; -fx-font-size: 12px;"/>
+                    </VBox>
+
+                    <VBox alignment="CENTER"
+                           style="-fx-background-color: rgba(255,255,255,0.13); -fx-background-radius: 14;"
+                           minWidth="90" minHeight="82">
+                        <Label text="CC"
+                               style="-fx-font-size: 30px; -fx-font-weight: 900; -fx-text-fill: white;"/>
+                        <Label text="PORTAL"
+                               style="-fx-font-size: 9px; -fx-font-weight: bold; -fx-text-fill: #E9D5FF;"/>
+                    </VBox>
+                </HBox>
+
+                <!-- KPI TITLE -->
+                <VBox spacing="4">
+                    <Label text="Placement Statistics"
+                           style="-fx-font-size: 17px; -fx-font-weight: bold; -fx-text-fill: #32105E;"/>
+                    <Label text="A quick snapshot of your placement activity"
+                           style="-fx-font-size: 11px; -fx-text-fill: #88819C;"/>
                 </VBox>
-                <VBox styleClass="card" HBox.hgrow="ALWAYS" spacing="8">
-                    <Label text="Package Distribution (LPA)" styleClass="section-title"/>
-                    <BarChart fx:id="packageBarChart" VBox.vgrow="ALWAYS">
-                        <xAxis><CategoryAxis label="Package Band"/></xAxis>
-                        <yAxis><NumberAxis label="Offers"/></yAxis>
-                    </BarChart>
+
+                <!-- KPI CARDS -->
+                <HBox spacing="14">
+                    <VBox HBox.hgrow="ALWAYS" spacing="10"
+                          style="-fx-background-color: white; -fx-background-radius: 15; -fx-border-color: #E9E3F5; -fx-border-radius: 15;">
+                        <padding><Insets top="17" right="16" bottom="17" left="16"/></padding>
+                        <HBox alignment="CENTER_LEFT" spacing="8">
+                            <Label text="STUDENTS"
+                                   style="-fx-text-fill: #77718B; -fx-font-size: 10px; -fx-font-weight: bold;"/>
+                            <Region HBox.hgrow="ALWAYS"/>
+                            <Label text="♙"
+                                   style="-fx-background-color: #F0E7FF; -fx-text-fill: #7C3AED; -fx-padding: 6 9; -fx-background-radius: 9; -fx-font-size: 14px;"/>
+                        </HBox>
+                        <Label fx:id="totalStudentsLabel" text="0"
+                               style="-fx-font-size: 27px; -fx-font-weight: 900; -fx-text-fill: #32105E;"/>
+                        <Label text="Registered students"
+                               style="-fx-font-size: 10px; -fx-text-fill: #9690A7;"/>
+                    </VBox>
+
+                    <VBox HBox.hgrow="ALWAYS" spacing="10"
+                          style="-fx-background-color: white; -fx-background-radius: 15; -fx-border-color: #E9E3F5; -fx-border-radius: 15;">
+                        <padding><Insets top="17" right="16" bottom="17" left="16"/></padding>
+                        <HBox alignment="CENTER_LEFT" spacing="8">
+                            <Label text="PLACEMENT RATE"
+                                   style="-fx-text-fill: #77718B; -fx-font-size: 10px; -fx-font-weight: bold;"/>
+                            <Region HBox.hgrow="ALWAYS"/>
+                            <Label text="↗"
+                                   style="-fx-background-color: #E8FAF1; -fx-text-fill: #15965B; -fx-padding: 6 9; -fx-background-radius: 9; -fx-font-size: 14px;"/>
+                        </HBox>
+                        <Label fx:id="placedPctLabel" text="0%"
+                               style="-fx-font-size: 27px; -fx-font-weight: 900; -fx-text-fill: #15965B;"/>
+                        <Label text="Students placed"
+                               style="-fx-font-size: 10px; -fx-text-fill: #9690A7;"/>
+                    </VBox>
+
+                    <VBox HBox.hgrow="ALWAYS" spacing="10"
+                          style="-fx-background-color: white; -fx-background-radius: 15; -fx-border-color: #E9E3F5; -fx-border-radius: 15;">
+                        <padding><Insets top="17" right="16" bottom="17" left="16"/></padding>
+                        <HBox alignment="CENTER_LEFT" spacing="8">
+                            <Label text="ACTIVE DRIVES"
+                                   style="-fx-text-fill: #77718B; -fx-font-size: 10px; -fx-font-weight: bold;"/>
+                            <Region HBox.hgrow="ALWAYS"/>
+                            <Label text="▤"
+                                   style="-fx-background-color: #E5F1FF; -fx-text-fill: #2879C7; -fx-padding: 6 9; -fx-background-radius: 9; -fx-font-size: 14px;"/>
+                        </HBox>
+                        <Label fx:id="activeDrivesLabel" text="0"
+                               style="-fx-font-size: 27px; -fx-font-weight: 900; -fx-text-fill: #2879C7;"/>
+                        <Label text="Currently active drives"
+                               style="-fx-font-size: 10px; -fx-text-fill: #9690A7;"/>
+                    </VBox>
+
+                    <VBox HBox.hgrow="ALWAYS" spacing="10"
+                          style="-fx-background-color: white; -fx-background-radius: 15; -fx-border-color: #E9E3F5; -fx-border-radius: 15;">
+                        <padding><Insets top="17" right="16" bottom="17" left="16"/></padding>
+                        <HBox alignment="CENTER_LEFT" spacing="8">
+                            <Label text="OFFERS"
+                                   style="-fx-text-fill: #77718B; -fx-font-size: 10px; -fx-font-weight: bold;"/>
+                            <Region HBox.hgrow="ALWAYS"/>
+                            <Label text="✦"
+                                   style="-fx-background-color: #FFF2D9; -fx-text-fill: #C58A19; -fx-padding: 6 9; -fx-background-radius: 9; -fx-font-size: 14px;"/>
+                        </HBox>
+                        <Label fx:id="totalOffersLabel" text="0"
+                               style="-fx-font-size: 27px; -fx-font-weight: 900; -fx-text-fill: #C58A19;"/>
+                        <Label text="Offers issued"
+                               style="-fx-font-size: 10px; -fx-text-fill: #9690A7;"/>
+                    </VBox>
+                </HBox>
+
+                <!-- PACKAGE SUMMARY -->
+                <HBox spacing="14">
+                    <VBox spacing="5" HBox.hgrow="ALWAYS"
+                          style="-fx-background-color: linear-gradient(to right, #32105E, #6D28C5); -fx-background-radius: 15;">
+                        <padding><Insets top="18" right="20" bottom="18" left="20"/></padding>
+                        <Label text="PACKAGE PERFORMANCE"
+                               style="-fx-text-fill: #D8C5FF; -fx-font-size: 10px; -fx-font-weight: bold;"/>
+                        <Label fx:id="avgMaxLabel" text="0.0 / 0.0"
+                               style="-fx-text-fill: white; -fx-font-size: 26px; -fx-font-weight: 900;"/>
+                        <Label text="Average package / Highest package (LPA)"
+                               style="-fx-text-fill: #E9D5FF; -fx-font-size: 11px;"/>
+                    </VBox>
+                </HBox>
+
+                <!-- CHARTS -->
+                <VBox spacing="5">
+                    <Label text="Placement Analytics"
+                           style="-fx-font-size: 17px; -fx-font-weight: bold; -fx-text-fill: #32105E;"/>
+                    <Label text="Visual breakdown of placement outcomes"
+                           style="-fx-font-size: 11px; -fx-text-fill: #88819C;"/>
                 </VBox>
-            </HBox>
-        </VBox>
+
+                <HBox spacing="14" minHeight="360">
+                    <VBox styleClass="card" HBox.hgrow="ALWAYS" spacing="8">
+                        <padding><Insets top="16" right="16" bottom="12" left="16"/></padding>
+                        <Label text="Placed Students by Branch"
+                               style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #32105E;"/>
+                        <Label text="Branch-wise placement distribution"
+                               style="-fx-font-size: 10px; -fx-text-fill: #9690A7;"/>
+                        <PieChart fx:id="branchPieChart"
+                                  VBox.vgrow="ALWAYS"
+                                  prefHeight="300"
+                                  style="-fx-background-color: transparent;"/>
+                    </VBox>
+
+                    <VBox styleClass="card" HBox.hgrow="ALWAYS" spacing="8">
+                        <padding><Insets top="16" right="16" bottom="12" left="16"/></padding>
+                        <Label text="Package Distribution"
+                               style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #32105E;"/>
+                        <Label text="Number of offers across package bands (LPA)"
+                               style="-fx-font-size: 10px; -fx-text-fill: #9690A7;"/>
+                        <BarChart fx:id="packageBarChart"
+                                  VBox.vgrow="ALWAYS"
+                                  prefHeight="300"
+                                  style="-fx-background-color: transparent;">
+                            <xAxis><CategoryAxis label="Package Band"/></xAxis>
+                            <yAxis><NumberAxis label="Number of Offers" minZero="true"/></yAxis>
+                        </BarChart>
+                    </VBox>
+                </HBox>
+
+                <!-- FOOTER -->
+                <HBox alignment="CENTER_LEFT">
+                    <Label text="CAREER CONNECT   •   CAMPUS PLACEMENT MANAGEMENT SYSTEM"
+                           style="-fx-font-size: 9px; -fx-text-fill: #AAA4BB;"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <Label text="JavaFX Admin Console"
+                           style="-fx-font-size: 9px; -fx-text-fill: #AAA4BB;"/>
+                </HBox>
+
+            </VBox>
+        </ScrollPane>
     </center>
 </BorderPane>

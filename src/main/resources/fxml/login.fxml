@@ -4,52 +4,117 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.campus.placement.controller.LoginController">
-    <top>
-        <HBox styleClass="app-header" alignment="CENTER_LEFT" spacing="12">
-            <VBox spacing="2">
-                <Label text="Campus Placement Management System" styleClass="app-title"/>
-                <Label text="UCS553 Enterprise Web Application • Core Java, JDBC &amp; JavaFX" styleClass="app-subtitle"/>
-            </VBox>
-            <Region HBox.hgrow="ALWAYS"/>
-            <Button text="Policy &amp; Architecture" onAction="#handleAbout" styleClass="btn-secondary"/>
-        </HBox>
-    </top>
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.campus.placement.controller.LoginController"
+            styleClass="login-root">
 
     <center>
-        <StackPane>
-            <padding>
-                <Insets top="30" right="30" bottom="30" left="30"/>
-            </padding>
-            <VBox styleClass="card" spacing="14" maxWidth="420" maxHeight="440">
-                <Label text="Sign In" styleClass="page-title"/>
-                <Label text="Enter your campus email and password" style="-fx-text-fill: #64748b;"/>
+        <HBox styleClass="login-main" spacing="0">
 
-                <VBox spacing="4">
-                    <Label text="Email"/>
-                    <TextField fx:id="emailField" promptText="e.g. aarav.sharma@campus.edu"/>
-                </VBox>
+            <!-- LEFT BRANDING PANEL -->
+            <VBox styleClass="login-hero" spacing="22" HBox.hgrow="ALWAYS">
 
-                <VBox spacing="4">
-                    <Label text="Password"/>
-                    <PasswordField fx:id="passwordField" promptText="Enter password" onAction="#handleLogin"/>
-                </VBox>
-
-                <Label fx:id="errorLabel" styleClass="error-label" wrapText="true"/>
-
-                <Button fx:id="loginButton" text="Login" onAction="#handleLogin"
-                        defaultButton="true" styleClass="btn-primary" maxWidth="Infinity"/>
-
-                <HBox alignment="CENTER" spacing="8">
-                    <Label text="New student?"/>
-                    <Button text="Register Here" onAction="#handleGoToRegister" styleClass="btn-secondary"/>
+                <HBox alignment="CENTER_LEFT" spacing="12">
+                    <Label text="✦" styleClass="brand-symbol"/>
+                    <VBox spacing="2">
+                        <Label text="CAREER CONNECT" styleClass="brand-name"/>
+                        <Label text="YOUR JOURNEY TO SUCCESS" styleClass="brand-tagline"/>
+                    </VBox>
                 </HBox>
 
-                <Separator/>
-                <Label text="Demo: admin@campus.edu / Admin@123 | aarav.sharma@campus.edu / Student@123"
-                       wrapText="true" style="-fx-font-size: 11px; -fx-text-fill: #64748b;"/>
+                <Region VBox.vgrow="ALWAYS"/>
+
+                <VBox spacing="12">
+                    <Label text="Your future&#10;starts here." styleClass="hero-heading"/>
+                    <Label text="Discover opportunities, connect with recruiters, and take the next step toward your dream career."
+                           styleClass="hero-description" wrapText="true" maxWidth="460"/>
+
+                    <HBox spacing="10" styleClass="hero-pill-row">
+                        <Label text="✦ Placement Drives" styleClass="hero-pill"/>
+                        <Label text="✦ Career Growth" styleClass="hero-pill"/>
+                    </HBox>
+                </VBox>
+
+                <VBox styleClass="hero-feature-card" spacing="12">
+                    <Label text="YOUR CAREER, YOUR JOURNEY" styleClass="hero-feature-caption"/>
+                    <Label text="One platform. Endless possibilities." styleClass="hero-feature-title"/>
+                    <Label text="Stay prepared. Stay ambitious. Your next opportunity could be closer than you think."
+                           styleClass="hero-feature-text" wrapText="true"/>
+                </VBox>
+
+                <Region VBox.vgrow="ALWAYS"/>
+
+                <Label text="© Career Connect  •  Built for ambitious students"
+                       styleClass="hero-footer"/>
             </VBox>
-        </StackPane>
+
+            <!-- RIGHT LOGIN PANEL -->
+            <StackPane styleClass="login-form-area" HBox.hgrow="ALWAYS">
+
+                <VBox styleClass="login-card" spacing="18" maxWidth="440">
+
+                    <VBox spacing="8">
+                        <Label text="WELCOME BACK 👋" styleClass="login-eyebrow"/>
+                        <Label text="Sign in to continue" styleClass="login-heading"/>
+                        <Label text="Access your campus placement portal and explore your opportunities."
+                               styleClass="login-description" wrapText="true"/>
+                    </VBox>
+
+                    <VBox spacing="7">
+                        <Label text="Campus Email" styleClass="login-field-label"/>
+                        <TextField fx:id="emailField"
+                                   promptText="name@campus.edu"
+                                   styleClass="login-input"/>
+                    </VBox>
+
+                    <VBox spacing="7">
+                        <Label text="Password" styleClass="login-field-label"/>
+                        <PasswordField fx:id="passwordField"
+                                      promptText="Enter your password"
+                                      onAction="#handleLogin"
+                                      styleClass="login-input"/>
+                    </VBox>
+
+                    <Label fx:id="errorLabel"
+                           styleClass="error-label"
+                           wrapText="true"/>
+
+                    <Button fx:id="loginButton"
+                            text="Sign In  →"
+                            onAction="#handleLogin"
+                            defaultButton="true"
+                            styleClass="login-submit"
+                            maxWidth="Infinity"/>
+
+                    <HBox alignment="CENTER" spacing="8">
+                        <Label text="New to Career Connect?" styleClass="register-prompt"/>
+                        <Button text="Create Account"
+                                onAction="#handleGoToRegister"
+                                styleClass="register-link"/>
+                    </HBox>
+
+                    <Separator styleClass="login-separator"/>
+
+                    <VBox spacing="6" styleClass="demo-box">
+                        <Label text="DEMO ACCESS" styleClass="demo-title"/>
+                        <Label text="Admin: admin@campus.edu"
+                               styleClass="demo-text"/>
+                        <Label text="Password: Admin@123"
+                               styleClass="demo-text"/>
+                        <Label text="Student: aarav.sharma@campus.edu"
+                               styleClass="demo-text"/>
+                        <Label text="Password: Student@123"
+                               styleClass="demo-text"/>
+                    </VBox>
+
+                    <Button text="Policy &amp; Architecture"
+                            onAction="#handleAbout"
+                            styleClass="login-policy-button"/>
+
+                </VBox>
+            </StackPane>
+
+        </HBox>
     </center>
 </BorderPane>
